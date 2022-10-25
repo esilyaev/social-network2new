@@ -1,22 +1,25 @@
 import { Button } from "@chakra-ui/button";
-import { ButtonGroup, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
-import { HiUser } from "react-icons/hi"
+import { HiChatAlt2, HiUser, HiHome } from "react-icons/hi"
+import { useNavigate } from "react-router-dom";
 
 const SideBar: React.FC = () => {
-    return (
-        <Flex direction={'column'} w='full'>
-            <Button w='full' size={'lg'} my={2}>
-                Button
-            </Button>
-            <Button w='full' size={'lg'} my={2}>
-                Chats
-            </Button>
-            <Button leftIcon={<HiUser />} w='full' my={2} >
-                Profile
-            </Button>
-        </Flex>
-    )
+  const navigate = useNavigate()
+
+  return (
+    <Flex direction={'column'} w='full'>
+      <Button leftIcon={<HiHome />} my={2} onClick={() => navigate('/')}>
+        Home
+      </Button>
+      <Button leftIcon={<HiChatAlt2 />} my={2} onClick={() => navigate('chats')}>
+        Chats
+      </Button>
+      <Button leftIcon={<HiUser />} my={2} onClick={() => navigate('profile')}>
+        Profile
+      </Button>
+    </Flex>
+  )
 }
 
 export default SideBar
