@@ -9,14 +9,22 @@ type InputProps = {
 const ChatInput: React.FC<InputProps> = ({ addMessage }) => {
   const [input, setInput] = useState("");
 
-  const handleClick = () => {
+  const sendMessage = () => {
     addMessage({ message: input, type: "out" });
     setInput("");
   };
 
-  const handleEnter = (evt: any) => {
-    if (evt.key === 'Enter') {
-      handleClick()
+  const handleKeyboard = (evt: React.KeyboardEvent<HTMLElement>) => {
+    switch (evt.key) {
+      case 'Enter':
+        sendMessage()
+        break;
+      case 'Escape':
+        setInput('')
+        break;
+
+      default:
+        break;
     }
 
   }
@@ -27,10 +35,10 @@ const ChatInput: React.FC<InputProps> = ({ addMessage }) => {
         placeholder="Enter message"
         value={input}
         onChange={(evt) => setInput(evt.target.value)}
-        onKeyDown={(evt) => handleEnter(evt)}
+        onKeyDown={(evt) => handleKeyboard(evt)}
       />
       <InputRightElement width="7rem">
-        <Button h="1.75rem" size="lg" onClick={handleClick}>
+        <Button h="1.75rem" size="lg" onClick={sendMessage}>
           Send
         </Button>
       </InputRightElement>
