@@ -2,7 +2,7 @@ import { List, ListItem, ListIcon, Flex } from "@chakra-ui/layout";
 import React, { useEffect, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 import { Text, useColorModeValue } from "@chakra-ui/react";
-import ChatInput from "./Chats/ChatInput";
+import ChatInput from "./ChatInput";
 
 type MessageProps = {
   message: string;
@@ -64,7 +64,7 @@ const Chats: React.FC = () => {
   };
 
   return (
-    <Flex direction="column" justify="space-between" w="full" h="full">
+    <Flex direction="column" justify="space-between" w="100%">
       <List spacing={3} w="full">
         {messages.map((m) => (
           <IncomeMessage message={m.message} type={m.type} key={m.message} />

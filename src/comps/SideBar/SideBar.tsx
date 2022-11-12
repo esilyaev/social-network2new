@@ -12,8 +12,8 @@ const SideBar: React.FC = () => {
       <Button leftIcon={<HiHome />} my={2} onClick={() => navigate('/')}>
         Home
       </Button>
-      <Button leftIcon={<HiChatAlt2 />} my={2} onClick={() => navigate('chats')}>
-        Chats
+      <Button leftIcon={<HiChatAlt2 />} my={2} onClick={() => navigate('dialogs')}>
+        Dialogs
       </Button>
       <Button leftIcon={<HiUser />} my={2} onClick={() => navigate('profile')}>
         Profile
