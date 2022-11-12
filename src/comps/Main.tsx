@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router'
 import Chats from './Chats'
 import Home from './Home'
 import Profile from './Profile'
+import MineSweeper from './MineSweeper'
 
 const Main: React.FC = () => {
   const bg = useColorModeValue('gray.50', 'green.700')
@@ -16,6 +17,7 @@ const Main: React.FC = () => {
         <Route index element={<Home />} />
         <Route path="chats" element={<Chats />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="minesweeper" element={<MineSweeper />} />
       </Routes>
 
     </VStack>

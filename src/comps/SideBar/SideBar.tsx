@@ -18,6 +18,9 @@ const SideBar: React.FC = () => {
       <Button leftIcon={<HiUser />} my={2} onClick={() => navigate('profile')}>
         Profile
       </Button>
+      <Button leftIcon={<HiUser />} my={2} onClick={() => navigate('minesweeper')}>
+        MineSweeper
+      </Button>
     </Flex>
   )
 }
