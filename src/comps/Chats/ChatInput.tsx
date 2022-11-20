@@ -14,13 +14,14 @@ const ChatInput: React.FC<InputProps> = ({ addMessage }) => {
     setInput("");
   };
 
-  const handleKeyboard = (evt: React.KeyboardEvent<HTMLElement>) => {
+  const handleKeyboard = (evt: any) => {
     switch (evt.key) {
       case 'Enter':
         sendMessage()
         break;
       case 'Escape':
         setInput('')
+        evt.target.blur()
         break;
 
       default:

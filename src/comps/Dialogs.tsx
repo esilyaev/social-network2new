@@ -1,4 +1,4 @@
-import { Avatar } from '@chakra-ui/avatar'
+import { Avatar, AvatarBadge } from '@chakra-ui/avatar'
 import { Box, Flex, Text } from '@chakra-ui/layout'
 import { FC, useState } from 'react'
 import Chats from './Chats/Chats'
@@ -13,12 +13,15 @@ const Dialogs: FC = () => {
     <Box w={'100%'} h={'100%'}>Dialogs here ...
       <Flex mt='10' justify={'space-between'} h='90%'>
         <Flex direction={'column'} p='5' w='35%' minW={'150px'}>
-          {[...Array(5).keys()].map(k => {
+          {[...Array(5).keys()].map((k, idx: number) => {
             return (
               <Box alignContent={'center'} key={k} onClick={() => dialogChoice(k)}
                 cursor='pointer'>
                 <Avatar name='default user'
-                  src='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' />
+                  src='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' >
+                  {idx === chosenDialog &&
+                    <AvatarBadge boxSize='1.25em' bg='green.500' />}
+                </Avatar>
                 <Text ml='2'>User {k}</Text>
               </Box>
             )
