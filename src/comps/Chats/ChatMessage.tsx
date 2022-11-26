@@ -11,14 +11,17 @@ const ChatMessage = ({ message, type }: Message) => {
   const messageBg = useColorModeValue("white", "gray.600");
   let justify: string
   let icon: IconType
+  let color: string
   switch (type) {
     case 'inc':
       justify = "end"
       icon = HiChevronDown
+      color = 'green.500'
       break
     case 'out':
       justify = "start"
       icon = HiChevronUp
+      color = 'blue.500'
       break
   }
 
@@ -33,7 +36,7 @@ const ChatMessage = ({ message, type }: Message) => {
         m="2"
       >
         <Text>{message}</Text>
-        <ListIcon as={icon} color="green.500" mx={2} />
+        <ListIcon as={icon} color={color} mx={2} />
       </Flex>
     </ListItem>
   )
