@@ -1,10 +1,11 @@
 import { Button } from "@chakra-ui/button";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import React, { useState, KeyboardEvent } from "react";
-import { MessageProps } from "./Message";
+import { Message } from "../../store/messageSlice";
+
 
 type InputProps = {
-  handleInput: (message: MessageProps) => void;
+  handleInput: (message: Message) => void;
 };
 
 const ChatInput: React.FC<InputProps> = ({ handleInput }) => {

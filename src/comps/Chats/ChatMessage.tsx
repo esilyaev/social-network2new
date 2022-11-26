@@ -2,11 +2,11 @@ import React from "react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { ListItem, Flex, ListIcon, Text } from "@chakra-ui/layout";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
-import { MessageProps } from "./Message";
+import { Message } from "../../store/messageSlice";
 
 
 
-const ChatMessage = (props: MessageProps) => {
+const ChatMessage = (props: Message) => {
   const messageBg = useColorModeValue("white", "gray.600");
   switch (props.type) {
     case "inc":

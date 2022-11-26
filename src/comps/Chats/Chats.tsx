@@ -1,18 +1,18 @@
 import React from "react";
 import { Flex, List } from "@chakra-ui/react";
 import ChatInput from "./ChatInput";
-import { MessageProps } from "./Message";
 import ChatMessage from "./ChatMessage";
-import { useSelector, useDispatch } from "react-redux";
-import { messageAdd } from "../../store/messageSlice";
+import { Message, messageAdd } from "../../store/messageSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+
 
 
 const Chats: React.FC = () => {
-  const messages = useSelector((state: any) => state.messages)
-  const dispatch = useDispatch()
+  const messages = useAppSelector(state => state.messages)
+  const dispatch = useAppDispatch()
 
 
-  const handleInput = (message: MessageProps) => {
+  const handleInput = (message: Message) => {
     dispatch(messageAdd(message))
   };
 
