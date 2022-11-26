@@ -4,14 +4,14 @@ import React, { useState, KeyboardEvent } from "react";
 import { MessageProps } from "./Message";
 
 type InputProps = {
-  addMessage: (message: MessageProps) => void;
+  handleInput: (message: MessageProps) => void;
 };
 
-const ChatInput: React.FC<InputProps> = ({ addMessage }) => {
+const ChatInput: React.FC<InputProps> = ({ handleInput }) => {
   const [input, setInput] = useState("");
 
   const sendMessage = () => {
-    addMessage({ message: input, type: "out" });
+    handleInput({ message: input, type: "out" });
     setInput("");
   };
 

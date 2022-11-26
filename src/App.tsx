@@ -10,30 +10,27 @@ import {
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import SideBar from "./comps/SideBar/SideBar";
 
-import { BrowserRouter } from "react-router-dom";
 import Main from "./comps/Main";
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <ChakraProvider theme={theme}>
-        <Box textAlign="center" fontSize="xl">
-          <Container maxW={"container.lg"} p={0}>
-            <Flex h="100vh" py={10} direction="column">
-              <Flex justify={"end"} h={"4rem"} p={2} alignItems={"center"}>
-                <Heading size="xl">Socal Network</Heading>
-                <ColorModeSwitcher />
-              </Flex>
-              <Flex w="full" h="full">
-                <VStack w="md" h="full" p="10" bg="white.100">
-                  <SideBar />
-                </VStack>
-                <Main />
-              </Flex>
+    <ChakraProvider theme={theme}>
+      <Box textAlign="center" fontSize="xl">
+        <Container maxW={"container.lg"} p={0}>
+          <Flex h="100vh" py={10} direction="column">
+            <Flex justify={"end"} h={"4rem"} p={2} alignItems={"center"}>
+              <Heading size="xl">Socal Network</Heading>
+              <ColorModeSwitcher />
             </Flex>
-          </Container>
-        </Box>
-      </ChakraProvider>
-    </BrowserRouter>
+            <Flex w="full" h="full">
+              <VStack w="md" h="full" p="10" bg="white.100">
+                <SideBar />
+              </VStack>
+              <Main />
+            </Flex>
+          </Flex>
+        </Container>
+      </Box>
+    </ChakraProvider>
   );
 };
