@@ -1,9 +1,10 @@
 import { Button } from "@chakra-ui/button";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
-import React, { SyntheticEvent, useState } from "react";
+import React, { useState, KeyboardEvent } from "react";
+import { MessageProps } from "./Message";
 
 type InputProps = {
-  addMessage: any;
+  addMessage: (message: MessageProps) => void;
 };
 
 const ChatInput: React.FC<InputProps> = ({ addMessage }) => {
@@ -14,14 +15,15 @@ const ChatInput: React.FC<InputProps> = ({ addMessage }) => {
     setInput("");
   };
 
-  const handleKeyboard = (evt: any) => {
+  const handleKeyboard = (evt: KeyboardEvent) => {
     switch (evt.key) {
       case 'Enter':
         sendMessage()
         break;
       case 'Escape':
         setInput('')
-        evt.target.blur()
+        const target = evt.target as HTMLInputElement
+        target.blur()
         break;
 
       default:
